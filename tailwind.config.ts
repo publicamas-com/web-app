@@ -18,11 +18,16 @@ export default {
       '7xl': ['4rem', { lineHeight: '4.5rem' }],
     },
     extend: {
+      colors: {
+        'publicamas-header': '#0A4D8C',
+        'publicamas-font': '#e2e5e8',
+      },
       borderRadius: {
         '4xl': '2.5rem',
       },
       fontFamily: {
         sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+
         display: [
           ['Mona Sans', ...defaultTheme.fontFamily.sans],
           { fontVariationSettings: '"wdth" 125' },

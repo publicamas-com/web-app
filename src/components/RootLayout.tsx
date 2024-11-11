@@ -10,8 +10,9 @@ import React, {
 import { usePathname } from 'next/navigation';
 import { Footer } from './Footer';
 import { useReducedMotion } from 'framer-motion';
-import { HeroSection } from '@/components/HeroSection';
+import { Header } from '@/components/Header';
 import { MobileMenu } from '@/components/MobileMenu';
+import '../styles/globals.scss';
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -50,7 +51,7 @@ function RootLayoutInner({
   return (
     <div className="bg-white">
       <MobileMenu />
-      <HeroSection />
+      <Header />
       {children}
       <Footer />
     </div>

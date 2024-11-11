@@ -1,165 +1,52 @@
+import React from 'react';
+import { ListProductElement } from '@/components/Product/ListProductElement/ListProductElement';
+
+const products = [
+  {
+    id:"1234",
+    uri:"agua-de-mar-1010101",
+    name: "Agua de mar",
+    frontImage: "https://www.publicamas.com.ar/img/productos/grandes/ARG-2840-1.jpg?v=1026",
+    price:"67.900",
+    currency:"ARS",
+    location:"Buenos Aires, General San Martin",
+  },{
+    id:"1235",
+    uri:"nos-ayudas-a-seguir-creciendo-1010101",
+    name: "Nos ayudas a seguir creciendo?",
+    frontImage: "https://publicamas.com.ar/img/productos/chicas/ARG-2853-1.png?v=4753",
+    price:"67.900",
+    currency:"ARS",
+    location:"Buenos Aires, General San Martin",
+  },{
+    id:"1234",
+    uri:"agua-de-mar-1010101",
+    name: "Agua de mar",
+    frontImage: "https://www.publicamas.com.ar/img/productos/grandes/ARG-2840-1.jpg?v=1026",
+    price:"67.900",
+    currency:"ARS",
+    location:"Buenos Aires, General San Martin",
+  },{
+    id:"1234",
+    uri:"agua-de-mar-1010101",
+    name: "Agua de mar",
+    frontImage: "https://www.publicamas.com.ar/img/productos/grandes/ARG-2840-1.jpg?v=1026",
+    price:"67.900",
+    currency:"ARS",
+    location:"Buenos Aires, General San Martin",
+  },
+];
 
 export default async function Home() {
-
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div><div className="group relative">
-            <div
-              className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-              <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                   alt="Front of men&#039;s Basic Tee in black."
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
+          {products.map((product) => (
+            <ListProductElement key={product.id} product={product}/>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

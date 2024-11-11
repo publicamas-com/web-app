@@ -4,7 +4,7 @@ export function MobileMenu() {
   return (
     <>
       <div className="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-        <div className="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+        <div className="fixed inset-0 bg-publicamas-header bg-opacity-25" aria-hidden="true"></div>
         <div className="fixed inset-0 z-40 flex">
           <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
             <div className="flex px-4 pb-2 pt-5">
