@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       colors: {
-        'publicamas-header': '#0A4D8C',
+        'publicamas-main-color': '#406cfb',
         'publicamas-font': '#e2e5e8',
       },
       borderRadius: {

@@ -1,26 +1,40 @@
-import { type Metadata } from 'next'
-
-import { RootLayout } from '@/components/RootLayout'
-
+import React from 'react';
+import clsx from 'clsx';
 import '@/styles/tailwind.css'
+import {Inter, Lexend} from 'next/font/google'
+import SessionProviderWrapper from '@/app/SessionProviderWrapper';
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s - Publicamas',
-    default: 'Publicamas - Vende más, compra mejor',
-  },
-}
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+});
+
+export default function RootLayout({
+                                     children,
+                                   }: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
-      <body className="flex min-h-full flex-col">
-        <RootLayout>
-          <div className="min-h-screen">
-            {children}
-          </div>
-        </RootLayout>
-      </body>
+    <html
+      lang="en"
+      className={clsx(
+        'h-full scroll-smooth bg-white antialiased',
+        inter.variable,
+        lexend.variable,
+      )}
+    >
+    <body className="flex h-full flex-col">
+    <SessionProviderWrapper>
+      {children}
+    </SessionProviderWrapper>
+    </body>
     </html>
-  )
+  );
 }
