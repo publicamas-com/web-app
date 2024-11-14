@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import '@/styles/tailwind.css';
 import { Inter, Lexend } from 'next/font/google';
 import SessionProviderWrapper from '@/app/SessionProviderWrapper';
-import { Metadata } from 'next';
+import { CustomMetadata } from 'next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,7 +17,7 @@ const lexend = Lexend({
   variable: '--font-lexend',
 });
 
-const metadata: Metadata = {
+const metadata: CustomMetadata = {
   title: {
     template: '%s - Publicamas',
     default: 'Publicamas - Vendé más, comprá mejor',
