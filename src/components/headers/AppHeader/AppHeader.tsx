@@ -19,11 +19,11 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 const navigation = [
-  { name: 'Inmuebles', href: '#', current: true },
-  { name: 'Vehiculos', href: '#', current: false },
-  { name: 'Electrónica', href: '#', current: false },
-  { name: 'Hogar', href: '#', current: false },
-  { name: 'Empleo', href: '#', current: false },
+  { name: 'Inmuebles', href: '/listado/inmuebles', current: false },
+  { name: 'Vehiculos', href: '/listado/vehiculos', current: false },
+  { name: 'Electrónica', href: '/listado/electronica', current: false },
+  { name: 'Hogar', href: '/listado/hogar', current: false },
+  { name: 'Empleo', href: '/listado/empleo', current: false },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
