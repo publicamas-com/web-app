@@ -3,3 +3,4 @@ export * from './headers';
 export * from './hero-sections';
 export * from './list';
 export * from './heading';
+export * from './buttons';

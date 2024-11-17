@@ -23,8 +23,8 @@ const categories = [
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/home-page-01-category-05.jpg',
   },
   {
-    name: 'Revoleos',
-    href: '/revoleos',
+    name: 'Oportunidades',
+    href: '/oportunidades',
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/home-page-01-category-03.jpg',
   },
 ];
