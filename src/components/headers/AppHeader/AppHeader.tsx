@@ -18,6 +18,8 @@ import { MobileMenu } from '@/components/Menu/MobileMenu/MobileMenu';
 import { HeaderButton } from '@/components';
 import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { HeaderButtonProps } from '@/types/ui.type';
+import { CategoryElement } from '@/types/api/category.type';
+import { CATEGORIES } from '@/constants';
 
 type UserType = {}
 
@@ -49,19 +51,16 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
     text: 'Crear cuenta',
     onClick: () => window.location.href = '/sign-up',
   }];
-  const people = [
-    { id: 1, name: 'Leslie Alexander', url: '#' },
-    // More people...
-  ];
+
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
 
-  const filteredPeople =
+  const filteredCategories:CategoryElement[] =
     query === ''
       ? []
-      : people.filter((person) => {
-        return person.name.toLowerCase().includes(query.toLowerCase());
+      : CATEGORIES.filter((category:CategoryElement) => {
+        return category.name.toLowerCase().includes(query.toLowerCase());
       });
 
 
@@ -148,10 +147,10 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                         onBlur={() => setQuery('')}
                       />
 
-                      {filteredPeople.length > 0 && (
+                      {filteredCategories.length > 0 && (
                         <ComboboxOptions static
                                          className="-mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800">
-                          {filteredPeople.map((person) => (
+                          {filteredCategories.map((person) => (
                             <ComboboxOption
                               key={person.id}
                               value={person}
@@ -163,7 +162,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                         </ComboboxOptions>
                       )}
 
-                      {query !== '' && filteredPeople.length === 0 && (
+                      {query !== '' && filteredCategories.length === 0 && (
                         <div className="px-4 py-14 text-center sm:px-14">
                           <UsersIcon className="mx-auto size-6 text-gray-400" aria-hidden="true" />
                           <p className="mt-4 text-sm text-gray-900">No people found using that search term.</p>
