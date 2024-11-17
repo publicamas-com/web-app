@@ -6,7 +6,6 @@ import {
   ComboboxOption, ComboboxOptions, Dialog, DialogBackdrop, DialogPanel,
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
   Menu,
   MenuButton,
   MenuItem,
@@ -20,8 +19,6 @@ import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { HeaderButtonProps } from '@/types/ui.type';
 import { CategoryElement } from '@/types/api/category.type';
 import { CATEGORIES } from '@/constants';
-
-type UserType = {}
 
 const user = undefined;
 const navigation = [
@@ -53,7 +50,6 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
   }];
 
   const [query, setQuery] = useState('');
-  const [open, setOpen] = useState(false);
   const [searchBarOpen, setSearchBarOpen] = useState(false);
 
   const filteredCategories:CategoryElement[] =
@@ -173,7 +169,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                 </div>
               </Dialog>
               {authButtons.map((element: HeaderButtonProps) => (
-                <HeaderButton text={element.text} action={element.onClick} />
+                <HeaderButton key={element.text} text={element.text} action={element.onClick} />
               ))}
               {user && (
                 <>

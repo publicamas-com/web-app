@@ -1,9 +1,7 @@
-import { ButtonProps, DisclosureButton, DisclosurePanel } from '@headlessui/react';
-import { BellIcon, ShoppingCartIcon, StarIcon } from '@heroicons/react/24/outline';
+import { DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { BellIcon, StarIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { HeaderButtonProps } from '@/types/ui.type';
-import { Header } from 'next/dist/lib/load-custom-routes';
-
 type MobileMenuProps = {
   navigation: any[];
   userNavigation: any[];
@@ -15,7 +13,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigation, user, authButtonProps = [] }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigation, authButtonProps = [] }) => {
   return (
     <DisclosurePanel className="sm:hidden">
       <div className="space-y-1 pb-3 pt-2">
@@ -64,6 +62,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigati
           {authButtonProps.map((element: HeaderButtonProps) => (
             <button
               type="button"
+              key={element.text}
               onClick={element.onClick}
               className="relative ml-auto shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
