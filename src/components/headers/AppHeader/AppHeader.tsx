@@ -17,6 +17,7 @@ import Image from 'next/image';
 import { MobileMenu } from '@/components/Menu/MobileMenu/MobileMenu';
 import { HeaderButton } from '@/components';
 import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
+import { HeaderButtonProps } from '@/types/ui.type';
 
 type UserType = {}
 
@@ -41,19 +42,27 @@ function classNames(...classes: string[]) {
 type AppHeaderProps = {}
 
 export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
+  const authButtons: HeaderButtonProps[] = [{
+    text: 'Ingresar',
+    onClick: () => window.location.href = '/sign-in',
+  }, {
+    text: 'Crear cuenta',
+    onClick: () => window.location.href = '/sign-up',
+  }];
   const people = [
     { id: 1, name: 'Leslie Alexander', url: '#' },
     // More people...
-  ]
-  const [query, setQuery] = useState('')
-  const [open, setOpen] = useState(false)
+  ];
+  const [query, setQuery] = useState('');
+  const [open, setOpen] = useState(false);
+  const [searchBarOpen, setSearchBarOpen] = useState(false);
 
   const filteredPeople =
     query === ''
       ? []
       : people.filter((person) => {
-        return person.name.toLowerCase().includes(query.toLowerCase())
-      })
+        return person.name.toLowerCase().includes(query.toLowerCase());
+      });
 
 
   return (
@@ -99,7 +108,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
             <div className="hidden sm:ml-6 sm:flex sm:items-center">
               <button
                 type="button"
-                onClick={() => setOpen(true)}
+                onClick={() => setSearchBarOpen(true)}
                 className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-publicamas-main-color focus:ring-offset-2"
               >
                 <span className="absolute -inset-1.5" />
@@ -108,9 +117,9 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
               </button>
               <Dialog
                 className="relative z-10"
-                open={open}
+                open={searchBarOpen}
                 onClose={() => {
-                  setOpen(false);
+                  setSearchBarOpen(false);
                   setQuery('');
                 }}
               >
@@ -164,8 +173,9 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                   </DialogPanel>
                 </div>
               </Dialog>
-              <HeaderButton text="Iniciar sesion" action={() => window.location.href = '/sign-in'} />
-              <HeaderButton text="Crear cuenta" action={() => window.location.href = '/sign-in'} />
+              {authButtons.map((element: HeaderButtonProps) => (
+                <HeaderButton text={element.text} action={element.onClick} />
+              ))}
               {user && (
                 <>
                   <button
@@ -213,8 +223,17 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                 </>
               )}
             </div>
+
             <div className="-mr-2 flex items-center sm:hidden">
-              {/* Mobile menu button */}
+              <button
+                type="button"
+                onClick={() => setSearchBarOpen(true)}
+                className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-publicamas-main-color focus:ring-offset-2"
+              >
+                <span className="absolute -inset-1.5" />
+                <span className="sr-only">Buscar</span>
+                <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
+              </button>
               <DisclosureButton
                 className="group relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 <span className="absolute -inset-0.5" />
@@ -225,7 +244,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
             </div>
           </div>
         </div>
-        <MobileMenu user={user} userNavigation={userNavigation} navigation={navigation} />
+        <MobileMenu user={user} userNavigation={userNavigation} navigation={navigation} authButtonProps={authButtons} />
       </Disclosure>
     </>
   );
