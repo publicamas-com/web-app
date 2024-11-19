@@ -4,6 +4,7 @@ import React from 'react';
 import { HomeHeroSection } from '@/components';
 import { CategorySection } from '@/components/sections/home/CategorySection/CategorySection';
 import Image from 'next/image';
+import { InLineProductList } from '@/components/products/InLineProductList/InLineProductList';
 
 const collections = [
   {
@@ -28,6 +29,47 @@ const collections = [
     description: 'Be more productive than enterprise project managers with a single piece of paper.',
   },
 ];
+
+
+const customerAreLookingProducts: any[] = [
+    {
+      id: 1,
+      name: 'Agua de Mar extraida en Mar del Plata sin modificacion',
+      category: 'UI Kit',
+      href: '#',
+      price: '$3000',
+      imageSrc: 'https://www.publicamas.com.ar/img/productos/grandes/ARG-2848-1.jpg?v=2797',
+      imageAlt:
+        'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+    },{
+      id: 2,
+      name: 'XIAOMI POCO X3 PRO 256GB 8GB RAM',
+      category: 'UI Kit',
+      href: '#',
+      price: '$49',
+      imageSrc: 'https://www.publicamas.com.ar/img/productos/grandes/ARG-2825-5.jpg?v=3122',
+      imageAlt:
+        'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+    },{
+      id: 3,
+      name: 'Fusion',
+      category: 'UI Kit',
+      href: '#',
+      price: '$49',
+      imageSrc: 'https://www.publicamas.com.ar/img/productos/grandes/ARG-2840-1.jpg?v=1026',
+      imageAlt:
+        'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+    },{
+      id: 4,
+      name: 'Fusion',
+      category: 'UI Kit',
+      href: '#',
+      price: '$49',
+      imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-page-05-related-product-01.jpg',
+      imageAlt:
+        'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+    }
+  ];
 
 const HomePage = () => {
   return (
@@ -60,35 +102,7 @@ const HomePage = () => {
           aria-labelledby="collection-heading"
           className="mx-auto max-w-xl px-4 pt-24 sm:px-6 sm:pt-32 lg:max-w-7xl lg:px-8"
         >
-          <h2 id="collection-heading" className="text-2xl font-bold tracking-tight text-gray-900">
-            Shop by Collection
-          </h2>
-          <p className="mt-4 text-base text-gray-500">
-            Each season, we collaborate with world-class designers to create a collection inspired by the natural
-            world.
-          </p>
-
-          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-            {collections.map((collection) => (
-              <a key={collection.name} href={collection.href} className="group block">
-                <div
-                  aria-hidden="true"
-                  className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
-                >
-                  <Image
-                    alt={collection.imageAlt}
-                    src={collection.imageSrc}
-                    className="size-full object-cover object-center"
-                    layout="responsive" // Layout adecuado para imágenes responsivas
-                    width={720} // Tamaño de ejemplo, ajusta según tus necesidades
-                    height={480} // Tamaño de ejemplo, ajusta según tus necesidades
-                  />
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-gray-900">{collection.name}</h3>
-                <p className="mt-2 text-sm text-gray-500">{collection.description}</p>
-              </a>
-            ))}
-          </div>
+          <InLineProductList products={customerAreLookingProducts} />
         </section>
 
         {/* Featured section */}

@@ -6,6 +6,12 @@ const nextConfig = {
         hostname: 'www.publicamas.com.ar',
         port: '',
         pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.publicamas.com.ar',
+        port: '',
+        pathname: '/img/**',
       },{
         protocol: 'https',
         hostname: 'tailwindui.com',
