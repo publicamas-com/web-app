@@ -19,6 +19,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { HeaderButtonProps } from '@/types/ui.type';
 import { CategoryElement } from '@/types/api/category.type';
 import { CATEGORIES } from '@/constants';
+import { useSession } from 'next-auth/react';
 
 const user = undefined;
 const navigation = [
@@ -49,13 +50,17 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
     onClick: () => window.location.href = '/sign-up',
   }];
 
+  const { data: session } = useSession();
+  const user = session?.user as any;
+  debugger;
+
   const [query, setQuery] = useState('');
   const [searchBarOpen, setSearchBarOpen] = useState(false);
 
-  const filteredCategories:CategoryElement[] =
+  const filteredCategories: CategoryElement[] =
     query === ''
       ? []
-      : CATEGORIES.filter((category:CategoryElement) => {
+      : CATEGORIES.filter((category: CategoryElement) => {
         return category.name.toLowerCase().includes(query.toLowerCase());
       });
 
@@ -168,7 +173,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                   </DialogPanel>
                 </div>
               </Dialog>
-              {authButtons.map((element: HeaderButtonProps) => (
+              {!user && authButtons.map((element: HeaderButtonProps) => (
                 <HeaderButton key={element.text} text={element.text} action={element.onClick} />
               ))}
               {user && (
@@ -196,7 +201,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Abrir menu de usuario</span>
 
-                        {/*<img alt="" src={user.imageUrl} className="size-8 rounded-full" />*/}
+                        <img alt="" src={user.photoUrl} className="size-8 rounded-full" />
                       </MenuButton>
                     </div>
                     <MenuItems

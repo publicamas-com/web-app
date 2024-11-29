@@ -2,6 +2,7 @@ import { DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { BellIcon, StarIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { HeaderButtonProps } from '@/types/ui.type';
+
 type MobileMenuProps = {
   navigation: any[];
   userNavigation: any[];
@@ -13,7 +14,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigation, authButtonProps = [] }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigation, authButtonProps = [], user }) => {
   return (
     <DisclosurePanel className="sm:hidden">
       <div className="space-y-1 pb-3 pt-2">
@@ -37,11 +38,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigati
       <div className="border-t border-gray-200 pb-3 pt-4">
         <div className="flex items-center px-4">
           <div className="shrink-0">
-            {/*<img alt="" src={user.imageUrl} className="size-10 rounded-full" />*/}
+            {user && (<img alt="" src={user.photoUrl} className="size-10 rounded-full" />)}
           </div>
           <div className="ml-3">
-            {/*<div className="text-base font-medium text-gray-800">{user.name}</div>*/}
-            {/*<div className="text-sm font-medium text-gray-500">{user.email}</div>*/}
+            {user && (<>
+              <div className="text-base font-medium text-gray-800">{`${user.firstName} ${user.lastName}`}</div>
+              <div className="text-sm font-medium text-gray-500">{user.email}</div>
+            </>)}
           </div>
           <button
             type="button"
@@ -59,7 +62,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation, userNavigati
             <span className="sr-only">Ver favoritos</span>
             <StarIcon aria-hidden="true" className="size-6" />
           </button>
-          {authButtonProps.map((element: HeaderButtonProps) => (
+          {!user && authButtonProps.map((element: HeaderButtonProps) => (
             <button
               type="button"
               key={element.text}
