@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { ICategory } from '@/types/api/category.type';
+import { GetUserResponse } from '@/types/api/getUser.response';
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -35,12 +37,17 @@ export const callLogin = async (email: string, password: string) => {
     }
 }
 
-export const callGetMe = async (token: string) => {
+export const callGetMe = async (token: string) : Promise<GetUserResponse> => {
     try {
-        const response = await axiosInstance.get('/users/me', {headers: {Authorization: `Bearer ${token}`}});
+        const response = await axiosInstance.get<GetUserResponse>('/users/me', {headers: {Authorization: `Bearer ${token}`}});
         return response.data;
     } catch (error) {
         console.error('Error en callGetMe:', error);
         throw error;
     }
+}
+
+export const callGetCategoryBySlug = async (slug: string) : Promise<ICategory>=> {
+    const result = await axiosInstance.get(`/categories/slug/${slug}`);
+    return result.data;
 }

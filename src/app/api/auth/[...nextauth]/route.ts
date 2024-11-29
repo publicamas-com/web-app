@@ -8,20 +8,21 @@ const handler = NextAuth({
             id: 'credentials',
             name: 'Credentials',
             credentials: {
-                username: { label: 'Username', type: 'username' },
+                username: { label: 'Email', type: 'email' },
                 password: { label: 'Password', type: 'password' },
             },
-            async authorize(credentials) {
+            async authorize(credentials:any) {
                 if (!credentials) return null;
-                const tokens = await callLogin(credentials.username, credentials.password);
+                const tokens = await callLogin(credentials.email, credentials.password);
                 if (!tokens) return null;
                 const user = await callGetMe(tokens._accessToken);
                 if (user) {
                     return {
                         id: user.id,
                         email: user.email,
-                        tenant: user.tenant,
-                        role: user.role,
+                        imageUrl: user.photoUrl,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
                         accessToken: tokens._accessToken,
                     };
                 }

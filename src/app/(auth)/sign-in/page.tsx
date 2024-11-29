@@ -1,4 +1,27 @@
+"use client";
+import { signIn } from 'next-auth/react';
+
 export default function SignInPage ({}) {
+
+  const handleSubmit = async (event:any) => {
+    event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    debugger
+    if (result?.error) {
+      console.error(result.error);
+    } else {
+      window.location.href = "/";
+    }
+  };
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -14,7 +37,7 @@ export default function SignInPage ({}) {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form onSubmit={handleSubmit} method="POST" className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
                 Email

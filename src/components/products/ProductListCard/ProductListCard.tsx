@@ -22,7 +22,7 @@ export const ProductListCard : React.FC<ProductListCardProps> = ({ product }) =>
         >
           <div
             className="w-full rounded-md bg-white/75 px-4 py-2 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
-            View Product
+            Ver producto
           </div>
         </div>
       </div>
