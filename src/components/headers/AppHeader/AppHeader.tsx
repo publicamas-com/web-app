@@ -30,9 +30,9 @@ const navigation = [
   { name: 'Empleo', href: '/listado/empleo', current: false },
 ];
 const userNavigation = [
-  { name: 'Your Profile', href: '/my-profile' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Mi Perfil', href: '/mi-perfil' },
+  { name: 'Opciones', href: '/opciones' },
+  { name: 'Cerrar sesión', href: '/logout' },
 ];
 
 function classNames(...classes: string[]) {
@@ -52,7 +52,6 @@ export const AppHeader: React.FC<AppHeaderProps> = ({}) => {
 
   const { data: session } = useSession();
   const user = session?.user as any;
-  debugger;
 
   const [query, setQuery] = useState('');
   const [searchBarOpen, setSearchBarOpen] = useState(false);

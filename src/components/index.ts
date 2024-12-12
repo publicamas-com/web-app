@@ -4,3 +4,6 @@ export * from './hero-sections';
 export * from './list';
 export * from './heading';
 export * from './buttons';
+export * from './progress-bar';
+export * from './stack'
+export  * from './Select';

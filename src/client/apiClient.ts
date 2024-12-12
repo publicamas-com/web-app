@@ -51,3 +51,12 @@ export const callGetCategoryBySlug = async (slug: string) : Promise<ICategory>=>
     const result = await axiosInstance.get(`/categories/slug/${slug}`);
     return result.data;
 }
+
+export const callGetChildCategoriesByParentId = async (parentId: string) : Promise<ICategory[]> => {
+    const result = await axiosInstance.get(`/categories?child=true&parentId=${parentId}`);
+    return result.data;
+}
+export const callGetParentCategories = async () : Promise<ICategory[]> => {
+    const result = await axiosInstance.get(`/categories?child=false`);
+    return result.data;
+}
